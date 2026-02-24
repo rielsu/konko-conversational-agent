@@ -81,7 +81,7 @@ configs/
   minimal_agent.yaml   # Minimal config for testing
 ```
 
-## State Model 
+## State Model
 
 Sketch of the core state model:
 

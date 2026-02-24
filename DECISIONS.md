@@ -1,6 +1,8 @@
 # DECISIONS.md
 
-Architecture and design decisions for the Konko Agent 
+
+
+Architecture and design decisions for the Konko Agent
 
 ## 1. Layered structure or Hexagonal?
 
