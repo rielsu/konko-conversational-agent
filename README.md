@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-# konko-conversational-agent
-Konko conversational agent
-=======
+
 # Konko Agent
 
 Conversational data-collection agent for Konko AI: collects user fields (email, name, phone, address), handles corrections, off-topic redirection, and escalation with a structured yet simple architecture.
@@ -85,15 +82,15 @@ PYTHONPATH=src python -m konko_agent.cli --config configs/default_agent.yaml
 Suggested conversation:
 
 - Agent (auto): shows the configured `personality.greeting` (custom greeting requirement).
-- You: `alice@example.com`  
+- You: `alice@example.com`
   - Agent: accepts email and asks for name (collects first field, moves to next).
-- You: `Alice Smith`  
+- You: `Alice Smith`
   - Agent: accepts name and asks for phone.
-- You: `123`  
+- You: `123`
   - Agent: rejects as invalid phone (minimal validation) and asks again.
-- You: `+1 555 123 4567`  
+- You: `+1 555 123 4567`
   - Agent: accepts phone and asks for address.
-- You: `123 Main St, Springfield`  
+- You: `123 Main St, Springfield`
   - Agent: confirms it has all required fields and uses the configured `closing` message, effectively escalating the conversation for handoff (all-fields escalation).
 
 This run demonstrates:
@@ -107,11 +104,11 @@ This run demonstrates:
 
 Using the same CLI run:
 
-- You: `alice@example.com`  
-- You: `Alice Smith`  
-- You: `+1 555 123 4567`  
-- You: `123 Main St, Springfield`  
-- You: `Actually, my email is alice+new@example.com`  
+- You: `alice@example.com`
+- You: `Alice Smith`
+- You: `+1 555 123 4567`
+- You: `123 Main St, Springfield`
+- You: `Actually, my email is alice+new@example.com`
   - Agent: treats this as a correction, updates the email field, and keeps the previous attempt in its internal history.
 
 This shows how multiple attempts are handled: the agent keeps an append-only history of attempts while exposing only the latest valid value.
@@ -120,14 +117,14 @@ This shows how multiple attempts are handled: the agent keeps an append-only his
 
 At any point while the agent is collecting a field:
 
-- You: `By the way, what's your name?`  
+- You: `By the way, what's your name?`
   - Agent: gives a brief friendly response and redirects you back to the current field (e.g. “Let's stay focused, can you share your email?”), satisfying the off-topic handling requirement.
 
 ### Escalation by trigger phrase
 
 `configs/default_agent.yaml` configures `trigger_phrases` for escalation. In a conversation where not all fields are yet collected:
 
-- You: `I want to speak to a human`  
+- You: `I want to speak to a human`
   - Agent: recognizes the trigger phrase, escalates early, and uses the configured closing message to indicate handoff to a human (policy-based escalation).
 
 These manual CLI flows, combined with the automated tests, cover:
@@ -158,4 +155,3 @@ configs/        # default_agent.yaml, casual_agent.yaml, minimal_agent.yaml
 ## Decisions
 
 See [DECISIONS.md](DECISIONS.md) for architecture and design choices.
->>>>>>> 6782469 (Initial commit: Konko conversational agent)
