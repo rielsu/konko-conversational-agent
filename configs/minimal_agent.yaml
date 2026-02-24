@@ -1,0 +1,22 @@
+# Minimal config for testing
+name: Minimal Agent
+fields:
+  - name: email
+    type: email
+    prompt: Your email?
+    required: true
+
+personality:
+  tone: neutral
+  style: null
+  formality: null
+  use_emojis: false
+  emoji_list: []
+  greeting: Hi. I need your email.
+  closing: Done.
+
+escalation:
+  enabled: true
+  reason: All required fields collected
+  after_all_fields: true
+  trigger_phrases: []

@@ -1,0 +1,38 @@
+# Konko Agent - default (friendly, semi-formal)
+name: Konko Agent
+llm_model: gpt-4o-mini
+
+fields:
+  - name: email
+    type: email
+    prompt: What's your email address?
+    required: true
+  - name: name
+    type: name
+    prompt: May I have your full name?
+    required: true
+  - name: phone
+    type: phone
+    prompt: What's the best phone number to reach you?
+    required: true
+  - name: address
+    type: address
+    prompt: What's your address?
+
+personality:
+  tone: friendly
+  style: conversational
+  formality: semi-formal
+  use_emojis: false
+  emoji_list: []
+  greeting: Hi! I'm here to collect a few details so we can follow up. Let's start with your email.
+  closing: Thank you! We have everything we need and will be in touch soon.
+
+escalation:
+  enabled: true
+  reason: All required fields collected
+  after_all_fields: true
+  trigger_phrases:
+    - speak to a human
+    - talk to an agent
+    - real person
